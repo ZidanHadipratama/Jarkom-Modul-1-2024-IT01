@@ -36,11 +36,11 @@ nc 10.15.40.20 10004
 
 1. Pertama, saya menganalisa packet yang ada di file capture. Kemudian saya mem-follow TCP dari salah satu packet yang berisikan login attempt:<br/>
 <img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/ftp1.png">
-<br/> dari capture salah satu packet tersebut, dapat diketahui bahwa response dari server adalah "Login incorrect."
-
+<br/>Dari capture salah satu packet tersebut, dapat diketahui bahwa response dari server jika attacker salah memasukkan password adalah "Login incorrect."
+<br/>
 2. Dengan mengetahui response dari server saat client mencoba untuk login adalah Login incorrect, maka untuk mencari password yang didapatkan oleh hacker setelah melakukan bruteforce login http adalah dengan mencoba mencari packet yang berisikan kata kunci "success". Oleh karena itu, saya terapkan display filter ```tcp and frame contains "success"```<br/>
 <img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/ftp2.png">
-
+<br/>
 3. Kemudian saya melakukan follow stream pada FTP packet yang berisikan response server "Login Successful" dan ditemukan string password yang berhasil didapatkan oleh hacker.<br/>
 <img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/ftp3.png">
 
