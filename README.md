@@ -26,9 +26,28 @@ Pradityo mencoba mengembangkan server ftp, tetapi seseorang mencoba melakukan br
 author: youdaemon
 
 nc 10.15.40.20 10004
+
+**Pertanyaan**: Apa password yang berhasil didapatkan oleh hacker setelah melakukan bruteforce login ftp?
+
 </details>
 
 ## Pengerjaan Soal
+**Pertanyaan**: Apa password yang berhasil didapatkan oleh hacker setelah melakukan bruteforce login ftp?
+
+1. Pertama, saya menganalisa packet yang ada di file capture. Kemudian saya mem-follow TCP dari salah satu packet yang berisikan login attempt:<br/>
+<img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/ftp1.png">
+<br/> dari capture salah satu packet tersebut, dapat diketahui bahwa response dari server adalah "Login incorrect."
+
+2. Dengan mengetahui response dari server saat client mencoba untuk login adalah Login incorrect, maka untuk mencari password yang didapatkan oleh hacker setelah melakukan bruteforce login http adalah dengan mencoba mencari packet yang berisikan kata kunci "success". Oleh karena itu, saya terapkan display filter ```tcp and frame contains "success"```<br/>
+<img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/ftp2.png">
+
+3. Kemudian saya melakukan follow stream pada FTP packet yang berisikan response server "Login Successful" dan ditemukan string password yang berhasil didapatkan oleh hacker.<br/>
+<img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/ftp3.png">
+
+Maka, Jawaban dari pertanyaan soal ini adalah:  ```m4y_th3_Kn!fe_ch1p_&_sh4tter```
+
+Flag: ```JARKOM2024{Brut3f0rce_FtP_9J8kXbAygRFe8rt}```
+
 
 
 # Evidence
