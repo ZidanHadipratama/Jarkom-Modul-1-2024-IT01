@@ -60,6 +60,31 @@ nc 10.15.40.20 10002
 </details>
 
 ## Pengerjaan Soal
+**Pertanyaan 1**: Apa domain milik korban?
+
+1. Pertama, dianalisa terlebih dahulu IP attacker dan IP tujuan. Setelah diketahui, maka diaplikasikan display filter ```ip.src==192.168.1.7 && ip.dst==192.168.1.5``` untuk mencari packet dimana client dan server terhubung. <br/>Darisitu maka akan ditemukan nama domain korban yaitu ```nanomate-solutions.com```.<br/>
+<img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/evidence1.png"><br/>
+
+**Pertanyaan 2**: Apa web server yang digunakan oleh korban?
+
+2. Untuk mencari webserver yang digunakan, dapat digunakan display filter ```ip.src==192.168.1.7 && ip.dst==192.168.1.5&&http``` untuk memfilter packets dari IP attacker ke IP tujuan dengan protokol HTTP. Lalu kita akan follow HTTP stream dari packet yang memiliki request method GET. <br/>Maka ditemukan bahwa webserver yang digunakan adalah ```apache-2.4.56```<br/>
+<img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/evidence2.png"><br/>
+
+**Pertanyaan 3**: Apa endpoint yang digunakan untuk login sebagai user biasa?
+
+3. Untuk mencari endpoint, cara yang digunakan sama dengan nomor sebelumnya yaitu menggunakan display filter ```ip.src==192.168.1.7 && ip.dst==192.168.1.5&&http```. Namun, sekarang akan dicari HTTP stream dari packet yang memiliki request method POST. <br/>Maka ditemukan bahwa endpoint yang digunakan adalah ```app/includes/process_login.php```
+<br/>
+<img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/evidence3.png"><br/>
+
+**Pertanyaan 4**: Apa email dan password yang berhasil digunakan untuk login sebagai user biasa?
+
+4. Dengan mengetahui respon dari server apabila login attempt attacker gagal adalah Invalid Username or Password, maka kita dapat mencari login attempt attacker yang berhasil dengan mencari kata kunci "Login Success". Oleh karena itu, digunakan display filter ```tcp and frame contains "Login Success"```, kemudian follow TCP stream-nya. <br/>Email yang ditemukan adalah ```tareq@gmail.com``` dengan password ```tareq@nanomate```<br/>
+<img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/evidence5.png"><br/>
+
+
+Flag: ```JARKOM2024{m4innya_h3bat_Ih8lXzpflzktkAB}```
+
+
 
 # How Many Packets?
 <details><summary>Soal</summary>
@@ -70,9 +95,19 @@ attachment: same as ATM or ATP or FTP ? 🤔
 author: youdaemon
 
 nc 10.15.40.20 10005
+
+**Pertanyaan**: Berapa total attempt login(bruteforce) yang dilakukan oleh hacker?
 </details>
 
 ## Pengerjaan Soal
+**Pertanyaan**: Berapa total attempt login(bruteforce) yang dilakukan oleh hacker?
+
+1. Dengan diketahui bahwa IP dari attacker adalah 10.15.40.20 dan IP korban adalah 10.30.3.4, dan response dari server ketika attempt login gagal adalah "Login incorrect", maka kita dapat menggunakan display filter ```ip.src==10.15.40.20 && ip.dst==10.30.3.4&&tcp and frame contains "Login incorrect"``` untuk mencari total attempt login.<br/>
+Hasilnya dapat kita lihat pada berapa packet yang di display pada kanan bawah layar.<br/>
+<img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/howmanypackets.png"><br/>
+
+
+Flag: ```JARKOM2024{c0unT_uR_P4cket5_cJ8kXcxygAFs84B}```
 
 # Trace Him
 <details><summary>Soal</summary>
