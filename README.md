@@ -159,9 +159,28 @@ note: Network traffic berikut mengandung malware asli. #DYOR Attachment: attachm
 Author: kiseki
 
 nc 10.15.40.20 10003
+
+**Pertanyaan**: Apa SHA-256 hash dari malware yang dimaksud?
 </details>
 
 ## Pengerjaan Soal
+**Pertanyaan**: Apa SHA-256 hash dari malware yang dimaksud?
 
+1. Pertama, agar dapat melakukan memfilter jenis protocol HTTP, maka perlu dilakukan decode TLS terlebih dahulu menggunakan file ```keylog.txt``` yang diberikan.<br/>
+<img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/malwaew1.png"><br/>
+
+2. Kemudian, memasukkan command display filter ```http``` untuk memfilter packet HTTP. Setelah ditampilkan hasilnya, ditemukan ada satu packet yang mencurigakan. Packet tersebut melakukan request GET file .dll<br/>
+<img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/malwaew2.png"><br/>
+
+3. Setelah ditemukan attacker mengirimkan file .dll, maka harus di-download dengan cara ```File->Export Objects->HTTP``` dan save file ```invest_20.dll```<br/>
+<img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/malwaew.png"><br/>
+
+4. Setelah file ```invest_20.dll``` didapatkan, langkah selanjutnya adalah untuk melakukan hash SHA-256 dari file tersebut. Digunakan command ```shasum -a 256 invest_20.dll``` pada terminal.<br/>
+<img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/malwaeww.png"><br/>
+
+5. Maka akan ditemukan hasil hash SHA-256 dari file malware, yaitu ```31cf42b2a7c5c558f44cfc67684cc344c17d4946d3a1e0b2cecb8eb58173cb2f```<br/>
+<img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/malwaewww.png"><br/>
+<br/>
+Flag: ```JARKOM2024{wow_how_u_solve_this_uJ8RvcAHizFtR89}```
 
 
