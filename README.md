@@ -6,11 +6,11 @@
 | 5027221052 | Mochamad Zidan Hadipratama |
 
 ## Daftar Isi
-- [ATM or ATP or FTP?](#ATM-or-ATP-or-FTP?)
-- [Evidence](#Evidence)
-- [How Many Packets?](#How-Many-Packets?)
-- [Trace Him](#Trace-Him)
-- [Creds](#Creds)
+- [ATM or ATP or FTP?](#atm-or-atp-or-ftp)
+- [Evidence](#evidence)
+- [How Many Packets?](#how-many-packets)
+- [Trace Him](#trace-him)
+- [Creds](#creds)
 - [malwleowleo](#malwleowleo)
 - [whoami](#whoami)
 - [secret](#secret)
