@@ -155,9 +155,26 @@ attachment: same as creds
 author: youdaemon
 
 nc 10.15.40.20 10009
+
+**Pertanyaan**: Siapa nama attacker yang sudah melakukan serangan ini?
 </details>
 
 ## Pengerjaan Soal
+
+**Pertanyaan**: Siapa nama attacker yang sudah melakukan serangan ini?
+
+1. Pada attempt login yang dilakukan oleh attacker, ditemukan bahwa attacker akan mengirimkan suatu file malware bernama ```m4L1c10us_W4re.c```.<br/>
+<img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/whoami1.png"><br/>
+
+2. Download file yang akan dikirimkan oleh attacker dengan cara ```File->Export Objects->FTP-Data```. Kemudian decode pesan yang ada di file .c tersebut dengan menggunakan base64.
+<br/>
+<img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/whoami2.png"><br/>
+
+3. Setelah di decode, maka hasilnya adalah "Hello my name is Paul Atreides" yang berarti jawabannya adalah ```Paul Atreides```.
+
+
+Flag: ```JARKOM2024{Duk3_0f_4rak!s_LISAN AL GHAIB!_9Jf8RO9Hl6dsR8q}```
+
 
 # secret    
 <details><summary>Soal</summary>
