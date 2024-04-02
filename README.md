@@ -185,9 +185,28 @@ attachment: same as creds
 author: youdaemon
 
 nc 10.15.40.20 10010
+
+**Pertanyaan**: Pertanyaan: Ternyata attacker menyisipkan file lainnya selain dari file malware, temukan pesan yg dikutip oleh attacker?
 </details>
 
 ## Pengerjaan Soal
+**Pertanyaan**: Pertanyaan: Ternyata attacker menyisipkan file lainnya selain dari file malware, temukan pesan yg dikutip oleh attacker?
+
+1. Langkah pertama adalah untuk mencari packet yang mengandung login attempt dari attacker. Dapat dicari dengan menggunakan display filter ```tcp and frame contains "Login incorrect"```
+<br/>
+<img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/mirza1.png"><br/>
+
+2. Pada attempt login yang dilakukan oleh attacker, ditemukan bahwa attacker akan mengirimkan suatu file image ```MIRZA.jpg```<br/>
+<img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/mirza2.png"><br/>
+
+3. Kita dapat men-download file MIRZA.jpg dengan cara ```File->Export Objects->HTTP```. Setelah di download, maka gambarnya adalah<br/>
+<img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/mirza3.png"><br/>
+
+4. Dari gambar tersebut dapat diketahui bawha pesan rahasia yang dikutip oleh attacker adalah ```MIO MIRZA```
+
+
+Flag: ```JARKOM2024{l0_Blm_tW_MIO_MIRZA?_cJClvcAHlAVHR8t}```
+
 
 # fuzz
 <details><summary>Soal</summary>
@@ -198,9 +217,12 @@ Attachment: here
 Author: kiseki
 
 nc 10.15.40.20 10001
+
 </details>
 
 ## Pengerjaan Soal
+
+
 
 # malwaew
 <details><summary>Soal</summary>
