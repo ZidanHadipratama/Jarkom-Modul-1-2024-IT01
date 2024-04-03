@@ -106,6 +106,7 @@ nc 10.15.40.20 10005
 Hasilnya dapat kita lihat pada berapa packet yang di display pada kanan bawah layar.<br/>
 <img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/howmanypackets.png"><br/>
 
+Jawaban Soal: ```934```
 
 Flag: ```JARKOM2024{c0unT_uR_P4cket5_cJ8kXcxygAFs84B}```
 
@@ -255,6 +256,7 @@ nc 10.15.40.20 10003
 5. Maka akan ditemukan hasil hash SHA-256 dari file malware, yaitu ```31cf42b2a7c5c558f44cfc67684cc344c17d4946d3a1e0b2cecb8eb58173cb2f```<br/>
 <img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/malwaewww.png"><br/>
 <br/>
+
 Flag: ```JARKOM2024{wow_how_u_solve_this_uJ8RvcAHizFtR89}```
 
 
