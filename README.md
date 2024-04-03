@@ -241,10 +241,10 @@ nc 10.15.40.20 10003
 ## Pengerjaan Soal
 **Pertanyaan**: Apa SHA-256 hash dari malware yang dimaksud?
 
-1. Pertama, agar dapat melakukan memfilter jenis protocol HTTP, maka perlu dilakukan decode TLS terlebih dahulu menggunakan file ```keylog.txt``` yang diberikan.<br/>
+1. Pertama, agar dapat melakukan memfilter jenis protocol HTTP, maka perlu dilakukan decode TLS terlebih dahulu. Pergi ke ```Edit->Preferences->Protocols->TLS```. Kemudian pada Pre-Master-Secret log filename, masukkan file ```keylog.txt``` yang diberikan pada soal.<br/>
 <img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/malwaew1.png"><br/>
 
-2. Kemudian, memasukkan command display filter ```http``` untuk memfilter packet HTTP. Setelah ditampilkan hasilnya, ditemukan ada satu packet yang mencurigakan. Packet tersebut melakukan request GET file .dll<br/>
+2. Kemudian, masukkan command display filter ```http``` untuk memfilter packet HTTP. Setelah ditampilkan hasilnya, ditemukan ada satu packet yang mencurigakan. Packet tersebut melakukan request GET file .dll<br/>
 <img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/malwaew2.png"><br/>
 
 3. Setelah ditemukan attacker mengirimkan file .dll, maka harus di-download dengan cara ```File->Export Objects->HTTP``` dan save file ```invest_20.dll```<br/>
