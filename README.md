@@ -201,7 +201,7 @@ nc 10.15.40.20 10010
 <img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/mirza2.png"><br/>
 
 3. Kita dapat men-download file MIRZA.jpg dengan cara ```File->Export Objects->HTTP```. Setelah di download, maka gambarnya adalah<br/>
-<img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/mirza3.png"><br/>
+<img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/mirza3.jpg"><br/>
 
 4. Dari gambar tersebut dapat diketahui bawha pesan rahasia yang dikutip oleh attacker adalah ```MIO MIRZA```
 
