@@ -119,9 +119,18 @@ attachment: same as ATM or ATP or FTP ? 🤔
 author: youdaemon
 
 nc 10.15.40.20 10006
+
 </details>
 
 ## Pengerjaan Soal
+**Pertanyaan**: Alamat IP attacker?
+1. Buka filenya, follow saja salah satu stream random, hingga ditemukan yang menarik. Berikut stream yang menarik yang ditemukan:<br/>
+<img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/traceHim1.png"><br/>
+2. Bisa kita lihat, source IPnya adalah `10.30.3.4` maka seharusnya itu adalah IP attacker. <br/>
+
+Jawaban Soal: ```10.30.3.4```
+
+Flag: ```JARKOM2024{Wh3re'5_thE_S4uce_cTrRYb9HQRJol8t}```
 
 # Creds
 <details><summary>Soal</summary>
@@ -133,6 +142,17 @@ nc 10.15.40.20 10007
 </details>
 
 ## Pengerjaan Soal
+**Pertanyaan 1**:Apa Username FTP yang digunakan oleh attacker?
+**Pertanyaan 2**:Apa Password FTP yang digunakan oleh attacker?
+1. Buka filenya, follow TCP stream yang menarik. Akan didapatkan stream seperti ini:<br/>
+<img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/creds1.png"><br/>
+2. Bisa dilihat, attacker baru mendapatkan login successful ketika menggunakan username `h3ngk3rTzy` dan password `S!l3ncE`.<br/>
+
+Jawaban Pertanyaan 1: ```USER:h3ngk3rTzy```
+
+Jawaban Pertanyaan 2: ```PASS:S!l3ncE```
+
+Flag: ```JARKOM2024{s3curE_uR_FtP_uT88Rbxfi1ktlrt}```
 
 # malwleowleo
 <details><summary>Soal</summary>
@@ -146,6 +166,12 @@ nc 10.15.40.20 10008
 </details>
 
 ## Pengerjaan Soal
+**Pertanyaan**: Apa nama malware yang dikirim oleh attacker ke korban?
+1. Jika kita lihat kembali pada stream dari soal `Creds`. Kita juga menemukan bahwa attacker mengirimkan file `m4L1c10us_W4re.c`. <br/>
+
+Jawaban Soal: ```m4L1c10us_W4re.c```
+
+Flag: ```JARKOM2024{beC4refUl_0f_m4lwAr3_xTw8YOxHy1VH88t}```
 
 # whoami
 <details><summary>Soal</summary>
@@ -222,7 +248,42 @@ nc 10.15.40.20 10001
 </details>
 
 ## Pengerjaan Soal
+**Pertanyaan 1**: Apa IP address milik attacker?
+1. Buka filenya, analisis streamnya, cari stream yang menarik. Akan didapatkan stream seperti ini:<br/>
+<img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/fuzz1.png"><br/>
+2. Bisa dilihat bahwa source awalnya adalah IP `10.33.1.154`. Telah didapatkan IP si attacker.<br/>
 
+Jawaban Pertanyaan: ```10.33.1.154```
+
+**Pertanyaan 2**: Apa port yang digunakan sebagai web server korban?
+1. Bisa di analisis jika dilihat di column `info` terdapat sebuah string `1448 --> 80` ketika `source` nya adalah `10.33.1.154` dan `destination` nya adalah `172.20.0.2`. <br/>
+2. Dari situ, dapat ditemukan bahwa attacker menggunakan port `1448` dan korban menggunakan port `80`. <br/>
+
+Jawaban Pertanyaan: ```80```
+
+**Pertanyaan 3**: Apa endpoint yang digunakan untuk login?
+1. Bisa dilihat di HTTP stream bahwa attacker menggunakan request `POST / HTTP/1.1` ketika mencoba untuk login. Maka `/` adalah endpoint untuk login
+
+Jawaban Pertanyaan: ```/```
+
+**Pertanyaan 4**: Apa tool yang digunakan oleh attacker untuk bruteforce login?
+1. Bisa dilihat lagi di HTTP stream bahwa `User-Agent` yang digunakan oleh attacker adalah `Fuzz Faster U Fool v2.0.0-dev`.
+2. Jika dicari hal tersebut di google, ditemukan bahwa itu adalah salah satu tool untuk fuzzing bernama `ffuf`. Ditemukanlah tools yang digunakan si attacker.<br/>
+
+Jawaban Pertanyaan:```ffuf-v2.0.0-dev```
+
+**Pertanyaan 5**: Apa username dan password yang berhasil digunakan oleh attacker?
+1. Bisa dilihat di HTTP stream, kode respon yang diberikan server ketika login gagal adalah `200`. Maka dapat dicari respon selain `200` yang dimana kemungkinan si attacker berhasil login.
+2. Dengan menggunakan filter `http.response.code!=200` akan ditemukan stream berikut:<br/>
+<img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/fuzz1.png"><br/>
+3. Dapat dilihat respon yang diberikan adalah `302`.
+4. Dapat dilakukan follow untuk stream tersebut dan dapat dicari untuk kata `302`. Akan ditemukan hal berikut:<br/>
+<img src= "https://github.com/ZidanHadipratama/jarkom-Modul-1-2024-IT01/blob/main/gambar/fuzz1.png"><br/>
+5. Dapat kita temukan bahwa username yang digunakan adalah `admin` dan password yang digunakan adalah `sUp3rSecretp@ssw0rd`.
+
+Jawaban Pertanyaan: ```admin:sUp3rSecretp@ssw0rd```
+
+Flag: ```Flag: JARKOM2024{s3m4ng4t_ya_<3_uhf8PbpHyAdo8At}```
 
 
 # malwaew
